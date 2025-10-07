@@ -1,245 +1,284 @@
-/* 
+@charset "UTF-8";
+/* @mixin medidas($width, $height){
+    width: $width;
+    height: $height;
 
-.hero → imagen de fondo que ocupa toda la pantalla.
-
-.features → grilla de 3 columnas centrada.
-
-.feature → tarjetas blancas semi transparentes, cuadradas en PC.
-
-@media → cambia el diseño en móvil para que se vea cómodo. 
-
-*/
-/* General */
+} */
+/* @mixin grid($colums, $rows, $gap){
+    display: grid;
+    grid-template-columns: $colums;
+    grid-template-rows: $rows;
+    gap: $gap;
+}
+ */
+/* @mixin flex{
+    display: flex;
+    align-items: center;
+} */
+/* Flexbox centrado */
+/* Cuadro con sombra suave */
+/* Transición suave (recibe la propiedad a animar) */
+/* Tamaños responsivos rápidos */
 body, html {
-  margin: 0; /* margenes a 0 */
-  padding: 0; /* relleno a 0 */
-  height: 100%; /* ocupa todo el alto de la pantalla */
-  /* font-size: 20px; */
-  font-family: '', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "", sans-serif;
 }
 
-.footer{
-    padding: 20px;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+.main {
+  padding-top: 65px;
 }
 
-/* NAV */
-.logo{
-    width: 110px;
-    height: 40px;
+.footer {
+  padding: 20px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
 }
 
-.iconos_redes{
-    display: inline-block;  /* coloco los elemenos en linea */
-    margin: 5px;
-    text-decoration: none;
-    color: black;
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.logo {
+  width: 110px;
+  height: 40px;
 }
 
-/* Quitar recuadro del botón */
-.navbar-toggler.custom-toggler{
+.iconos_redes {
+  display: inline-block;
+  margin: 5px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.navbar-toggler.custom-toggler {
   border: none;
   background: transparent;
   box-shadow: none;
-  width: 34px;           /* área clickeable */
+  width: 34px;
   height: 28px;
   padding: 0;
   position: relative;
 }
-
-/* Las 3 líneas (una real + 2 pseudo) */
-.custom-toggler .toggler-icon,
-.custom-toggler .toggler-icon::before,
-.custom-toggler .toggler-icon::after{
+.navbar-toggler.custom-toggler .toggler-icon,
+.navbar-toggler.custom-toggler .toggler-icon::before,
+.navbar-toggler.custom-toggler .toggler-icon::after {
   content: "";
   position: absolute;
-  left: 0; right: 0;
+  left: 0;
+  right: 0;
   height: 2px;
-  background: #ffffff;      /* color de las líneas */
+  background: #ffffff;
   border-radius: 2px;
-  transition: transform .25s ease, opacity .25s ease, background .25s ease;
+  transition: transform 0.3s ease;
 }
-
-/* Línea del medio centrada */
-.custom-toggler .toggler-icon{
+.navbar-toggler.custom-toggler .toggler-icon {
   top: 50%;
   transform: translateY(-50%);
 }
-
-/* Superior e inferior */
-.custom-toggler .toggler-icon::before{ top: -8px; }
-.custom-toggler .toggler-icon::after { top:  8px; }
-
-/* ===== Estado ABIERTO (Bootstrap quita .collapsed) ===== */
-.custom-toggler:not(.collapsed) .toggler-icon{
-  background: transparent;     /* oculto la del medio */
+.navbar-toggler.custom-toggler .toggler-icon::before {
+  top: -8px;
 }
-.custom-toggler:not(.collapsed) .toggler-icon::before{
+.navbar-toggler.custom-toggler .toggler-icon::after {
+  top: 8px;
+}
+.navbar-toggler.custom-toggler:not(.collapsed) .toggler-icon {
+  background: transparent;
+}
+.navbar-toggler.custom-toggler:not(.collapsed) .toggler-icon::before {
   transform: translateY(8px) rotate(45deg);
 }
-.custom-toggler:not(.collapsed) .toggler-icon::after{
+.navbar-toggler.custom-toggler:not(.collapsed) .toggler-icon::after {
   transform: translateY(-8px) rotate(-45deg);
 }
 
 .custom-nav {
-  background-color: #1a394e;  /* azul oscuro */
+  background-color: #1a394e;
 }
-
-/* Enlaces del nav */
 .custom-nav .nav-link {
-  color: #ffffff;             /* texto blanco */
+  color: #ffffff;
   transition: color 0.3s ease;
 }
-
 .custom-nav .nav-link:hover {
-  color: #d80303;             /* dorado al pasar el mouse */
+  color: #961721;
 }
-
-/* Íconos */
 .custom-nav .iconos_redes {
   color: #ffffff;
   margin-left: 15px;
   font-size: 18px;
 }
-
 .custom-nav .iconos_redes:hover {
-  color: #d80303;
+  color: #961721;
 }
 
-
-/********************************************************************************/
-/* PRIMER SECTION */
-.servicios_home{
-    background-color: #961721;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-around;
-    gap: 5px; /* espacio de 5px entre cada bloque */
-    padding: 10px 0px;
-    margin: 60px 0px auto;
+/* ==========================================================================
+   SERVICIOS
+   ========================================================================== */
+.servicios_home {
+  background-color: #961721;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+  gap: 5px;
+  padding: 5px;
+  margin: 60px 0 auto;
 }
-
-.servicios_home_contenido{
-    display: flex; /* activamos flex */
-    align-items: center;
-    flex-direction: column; /* organiza ícono, título y texto en columna */
-    justify-content: center;
-    text-align: center;
-    gap: 5px;
-}
-
-.servicios_home_contenido i{
-    margin-top: 20px;
-    font-size: 30px; /* tamaño del ícono */
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.servicios_home_contenido b{
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    line-height: 1;
-    color: #ffffff;
-}
-
-.servicios_home_contenido p{
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    line-height: 1;
-    color: #ffffff;
-}
-
-
-
-/********************************************************************************/
-/* Fondo */
-.hero {
-  background: url("../imagenes/home.JPG") no-repeat center center/cover; /* coloca imagen de fondo, evita se repita, la centra y que cubra toda la pantalla */
-  min-height: 100vh; /* ocupa el 100vh% del alto visible de la pantalla */
-  display: flex; /* convierte el contenedor en un flexbox */
-  justify-content: center; /* centra el contenido en el eje horizontal */
-  align-items: center; /* centra el contenido en el eje vertical */
-}
-
-/* Contenedor de los bloques */
-.features {
-  display: grid; /* habilitamos grid */
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales. 1fr = una fracción del espacio */
-  gap: 20px; /* espacio de 20px entre cada bloque */
-  width: 70%;             /* ancho máximo relativo */
-  max-width: 1000px;      /* nunca se pasa de 1000px */
-}
-
-/* Cada bloque */
-.feature {
-  background: rgba(255, 255, 255, 0.80); /* fondo blanco con 85% de opacidad (deja ver un poco la foto de fondo) */
-  border: 2px solid #c4c4c4;
-  border-radius: 10px; /* esquinas redondeadas */
-  text-align: center; /* centra el texto dentro del bloque. */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* da una sombra suave, efecto de “tarjeta flotante” */
-
-  display: flex; /* activamos flex */
-  flex-direction: column; /* organiza ícono, título y texto en columna */
+.servicios_home .servicios_home_contenido {
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
-
-  aspect-ratio: 1 / 1;    /* cuadrado automático */
-  min-width: 200px;       /* no se achican demasiado */
+  gap: 5px;
+}
+.servicios_home .servicios_home_contenido i {
+  margin-top: 10px;
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.servicios_home .servicios_home_contenido b, .servicios_home .servicios_home_contenido p {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  line-height: 1;
+  text-align: center;
+}
+.servicios_home .servicios_home_contenido b {
+  font-weight: bold;
+  font-size: 15px;
+}
+.servicios_home .servicios_home_contenido p {
+  font-size: 11px;
 }
 
-.feature i {
+/* ==========================================================================
+   HERO Y FEATURES
+   ========================================================================== */
+.hero {
+  background: url("../imagenes/home.JPG") no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero .features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 70%;
+  max-width: 1000px;
+}
+.hero .features .feature {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #c4c4c4;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  aspect-ratio: 1/1;
+  min-width: 200px;
+}
+.hero .features .feature i {
   margin-top: 20px;
-  font-size: 50px; /* tamaño del ícono */
+  font-size: 50px;
   color: #000000;
   margin-bottom: 10px;
 }
-
-.feature p{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px;
+.hero .features .feature p {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  text-align: center;
 }
 
+/* ==========================================================================
+   WHATSAPP
+   ========================================================================== */
 .icono-whatsapp {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 20px;       /* distancia desde abajo */
-  right: 20px;        /* distancia desde la derecha */
-  background-color: #25d366; /* verde WhatsApp */
-  color: white;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #ffffff;
   border-radius: 50%;
-  text-align: center;
   font-size: 30px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
-
 .icono-whatsapp:hover {
-  transform: scale(1.1); /* efecto zoom al pasar el mouse */
-  color: white;
+  transform: scale(1.1);
+  color: #ffffff;
 }
 
-
-
-
-
-/* Responsive en móvil */
+/* ==========================================================================
+   NOSOTROS
+   ========================================================================== */
+.nosotros {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  background-color: #961721;
+  max-width: 1024px;
+  justify-content: space-around;
+  padding: 4rem;
+  gap: 3rem;
+  border-radius: 1rem;
+  margin: 3rem auto;
+}
 @media (max-width: 768px) {
-  .features {
-    grid-template-columns: 1fr; /* se apilan */
+  .nosotros {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  .feature {
-    
-    aspect-ratio: auto; /* dejan de ser cuadrados */
+  .nosotros_img {
+    margin: 0 auto;
   }
 }
+.nosotros_img {
+  width: 100%;
+  object-fit: cover;
+  max-width: 20rem;
+  border-style: none;
+}
+.nosotros_titulo {
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 2rem;
+}
+.nosotros_subtitulo {
+  font-family: "Lato", sans-serif;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+.nosotros_texto {
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem;
+  color: #ffffff;
+  line-height: 1rem;
+  margin-top: 1rem !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero .features {
+    grid-template-columns: 1fr;
+  }
+  .hero .features .feature {
+    aspect-ratio: auto;
+  }
+}
+
+/*# sourceMappingURL=styleproyecto.css.map */

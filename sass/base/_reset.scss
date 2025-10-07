@@ -1,0 +1,19 @@
+// UTILITIES
+@use "../utilities/variables" as *;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: '', sans-serif;
+}
+
+.main {
+  padding-top: 65px;
+}
+
+.footer {
+  padding: 20px;
+  font-size: 15px;
+  font-family: $font-general;
+}
