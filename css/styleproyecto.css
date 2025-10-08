@@ -73,7 +73,7 @@ main {
     margin-top: 0;
   }
 }
-/* === BOTÓN HAMBURGUESA (tu estilo) === */
+/* === BOTÓN HAMBURGUESA === */
 .navbar-toggler.custom-toggler {
   border: none;
   background: transparent;
@@ -213,7 +213,7 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 9999; /* subilo bien alto */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px #000000;
   transition: transform 0.3s ease;
 }
 .icono-whatsapp:hover {
@@ -281,7 +281,7 @@ main {
   height: 180px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px #000000;
 }
 .map-container iframe {
   width: 100%;
@@ -293,7 +293,7 @@ main {
   text-decoration: none; /* Quita el subrayado */
 }
 .map-container .footer a:hover {
-  color: #fff; /* Si querés, cambia de color al pasar el mouse */
+  color: #ffffff;
 }
 @media (min-width: 992px) {
   .map-container {
@@ -307,7 +307,6 @@ main {
   cursor: pointer; /* cambia a manito */
   transition: color 0.3s ease; /* transición suave */
 }
-
 .no-link:hover {
   color: #961721;
 }
