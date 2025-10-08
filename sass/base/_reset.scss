@@ -8,9 +8,10 @@ body, html {
   font-family: '', sans-serif;
 }
 
-.main {
-  padding-top: 65px;
-}
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}    
 
 .footer {
   padding: 20px;

@@ -26,8 +26,9 @@ body, html {
   font-family: "", sans-serif;
 }
 
-.main {
-  padding-top: 65px;
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .footer {
@@ -36,28 +37,48 @@ body, html {
   font-family: "Montserrat", sans-serif;
 }
 
-/* ==========================================================================
-   NAVBAR
-   ========================================================================== */
-.logo {
+/* === NAVBAR === */
+.custom-nav {
+  background-color: #1a394e;
+  padding: 0.5rem 0;
+}
+.custom-nav .logo {
   width: 110px;
-  height: 40px;
+  height: auto;
+  object-fit: contain;
+}
+.custom-nav .nav-link {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+.custom-nav .nav-link:hover {
+  color: #961721;
+}
+.custom-nav .iconos_redes {
+  color: #ffffff;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+.custom-nav .iconos_redes:hover {
+  color: #961721;
 }
 
-.iconos_redes {
-  display: inline-block;
-  margin: 5px;
-  text-decoration: none;
-  color: #000000;
+/* Íconos a la derecha en ≥lg, debajo del menú en <lg (ya dentro del collapse) */
+.navbar-icons {
+  margin-top: 0.5rem;
 }
 
+@media (min-width: 992px) {
+  .navbar-icons {
+    margin-top: 0;
+  }
+}
+/* === BOTÓN HAMBURGUESA (tu estilo) === */
 .navbar-toggler.custom-toggler {
   border: none;
   background: transparent;
-  box-shadow: none;
   width: 34px;
   height: 28px;
-  padding: 0;
   position: relative;
 }
 .navbar-toggler.custom-toggler .toggler-icon,
@@ -70,7 +91,7 @@ body, html {
   height: 2px;
   background: #ffffff;
   border-radius: 2px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 .navbar-toggler.custom-toggler .toggler-icon {
   top: 50%;
@@ -92,25 +113,6 @@ body, html {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-.custom-nav {
-  background-color: #1a394e;
-}
-.custom-nav .nav-link {
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-.custom-nav .nav-link:hover {
-  color: #961721;
-}
-.custom-nav .iconos_redes {
-  color: #ffffff;
-  margin-left: 15px;
-  font-size: 18px;
-}
-.custom-nav .iconos_redes:hover {
-  color: #961721;
-}
-
 /* ==========================================================================
    SERVICIOS
    ========================================================================== */
@@ -121,7 +123,8 @@ body, html {
   justify-content: space-around;
   gap: 5px;
   padding: 5px;
-  margin: 60px 0 auto;
+  margin: 0;
+  padding-top: 20px;
 }
 .servicios_home .servicios_home_contenido {
   display: flex;
@@ -206,11 +209,11 @@ body, html {
   color: #ffffff;
   border-radius: 50%;
   font-size: 30px;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999; /* subilo bien alto */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 .icono-whatsapp:hover {
@@ -270,6 +273,46 @@ body, html {
 }
 
 /* ==========================================================================
+   FOOTER
+   ========================================================================== */
+/* ==== MAPA EN FOOTER ==== */
+.map-container {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.map-container .footer a {
+  color: inherit; /* Usa el mismo color del texto */
+  text-decoration: none; /* Quita el subrayado */
+}
+.map-container .footer a:hover {
+  color: #fff; /* Si querés, cambia de color al pasar el mouse */
+}
+@media (min-width: 992px) {
+  .map-container {
+    height: 200px; /* tamaño fijo escritorio */
+  }
+}
+
+.no-link {
+  color: inherit;
+  text-decoration: none; /* sin subrayado */
+  cursor: pointer; /* cambia a manito */
+  transition: color 0.3s ease; /* transición suave */
+}
+
+.no-link:hover {
+  color: #961721;
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 768px) {
@@ -278,6 +321,20 @@ body, html {
   }
   .hero .features .feature {
     aspect-ratio: auto;
+  }
+}
+/* === RESPONSIVE === */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #1a394e;
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
+  }
+  .nav-link {
+    text-align: center;
+  }
+  .logo {
+    width: 90px;
   }
 }
 
